@@ -1,5 +1,5 @@
 Copad::Application.routes.draw do
-  root 'welcome#index'
+  root 'web/welcome#index'
 
   resource :rooms, only: [:index, :show]
 end
