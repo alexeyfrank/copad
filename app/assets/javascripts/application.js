@@ -12,4 +12,5 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require ace-builds/src-noconflict/ace
 //= require_tree .
