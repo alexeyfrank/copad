@@ -13,4 +13,6 @@
 //= require jquery
 //= require jquery_ujs
 //= require ace-builds/src-noconflict/ace
+//= require share/share
+//= require share/ace
 //= require_tree .
