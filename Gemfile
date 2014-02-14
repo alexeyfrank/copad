@@ -20,8 +20,6 @@ gem 'configus'
 gem 'kaminari'
 gem 'cocoon'
 
-gem 'battle_asserts', git: 'git@github.com:kaize/battle_asserts.git'
-
 
 gem "ransack", github: "activerecord-hackery/ransack", branch: "rails-4.1"
 gem "polyamorous", github: "activerecord-hackery/polyamorous"

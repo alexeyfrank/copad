@@ -43,12 +43,6 @@ GIT
       react-source (= 0.8.0)
 
 GIT
-  remote: git@github.com:kaize/battle_asserts.git
-  revision: 992c26881ec0f435fe35d7717308666dbaa5f88f
-  specs:
-    battle_asserts (0.0.0)
-
-GIT
   remote: git@github.com:seuros/state_machine.git
   revision: 809932adc60084e43cf4298a76b0b37675e55d25
   specs:
@@ -406,7 +400,6 @@ DEPENDENCIES
   active_model_serializers
   activerecord-session_store
   airbrake
-  battle_asserts!
   bcrypt-ruby (~> 3.1.2)
   bootstrap-sass
   bunny
