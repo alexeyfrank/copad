@@ -13,7 +13,6 @@ gem 'russian'
 gem 'state_machine', git: "git@github.com:seuros/state_machine.git"
 gem 'enumerize'
 gem 'gon'
-gem 'term-ansicolor'
 
 gem 'uglifier', '>= 1.3.0'
 gem 'configus'
@@ -37,7 +36,6 @@ gem 'haml-rails'
 gem 'bootstrap-sass'
 gem 'js-routes'
 gem 'quiet_assets'
-gem 'lodash-rails'
 gem "active_model_serializers"
 
 gem 'omniauth'
@@ -54,7 +52,6 @@ gem 'redis'
 gem 'bunny'
 gem 'keymaster-rails'
 gem 'nokogiri', '1.3.3'
-# gem 'backup', "~> 4.0.0"
 
 gem 'rails-assets-codemirror'
 gem 'chart-js-rails'
