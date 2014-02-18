@@ -19,7 +19,6 @@ gem 'configus'
 gem 'kaminari'
 gem 'cocoon'
 
-
 gem "ransack", github: "activerecord-hackery/ransack", branch: "rails-4.1"
 gem "polyamorous", github: "activerecord-hackery/polyamorous"
 
@@ -52,9 +51,6 @@ gem 'redis'
 gem 'bunny'
 gem 'keymaster-rails'
 gem 'nokogiri', '1.3.3'
-
-gem 'rails-assets-codemirror'
-gem 'chart-js-rails'
 
 group :development, :test do
   gem 'factory_girl_rails'
