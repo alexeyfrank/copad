@@ -1,0 +1,14 @@
+{
+  "name": "copad",
+  "version": "0.0.1",
+  "description": "",
+  "homepage": "",
+  "author": "alexeyfrank@gmail.com",
+
+  "main": "index.js",
+
+  "dependencies": {
+    "share": "<0.7",
+    "connect": "<2.0.0"
+  }
+}

@@ -1,0 +1,13 @@
+.header
+  %ul.nav.nav-pills.pull-right
+    %li
+      = link_to 'Главная', root_path
+    - if signed_in?
+      %li
+        = link_to 'Аккаунт', account_path
+      %li
+        = link_to 'Выйти', account_path
+    - else
+      %li
+        = link_to 'Войти', new_user_session_path
+  %h3.text-muted Copad

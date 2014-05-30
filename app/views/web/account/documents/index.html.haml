@@ -1,0 +1,26 @@
+%h3 Мои документы
+
+.well-mini.well
+  = simple_form_for @document, url: [:account, @document], wrapper: :horizontal_form do |f|
+    = f.input :title, as: :string
+    = f.submit "Создать документ"
+
+%table.table.table-striped
+  %thead
+    %tr
+      %th ID
+      %th Название
+      %th Дата создания
+      %th Дата обновления
+      %th
+  %tbody
+    - @documents.each do |d|
+      %tr
+        %td= d.id
+        %td= d.title
+        %td= d.created_at
+        %td= d.updated_at
+        %td
+          = link_to edit_document_path(d), class: 'btn btn-mini' do
+            %span.glyphicon.glyphicon-edit
+

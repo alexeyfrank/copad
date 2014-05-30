@@ -1,0 +1,13 @@
+!!!
+%html{lang: "en"}
+  = render 'layouts/shared/header'
+  %body
+    .container
+      = render 'layouts/shared/top_menu'
+      .row
+        .col-md-8
+          = yield
+        .col-md-4
+          = render 'layouts/shared/account/menu'
+
+      = render 'layouts/shared/footer'

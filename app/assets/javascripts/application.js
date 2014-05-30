@@ -15,4 +15,6 @@
 //= require ace-builds/src-noconflict/ace
 //= require share/share
 //= require share/ace
+//= require bootstrap
+//= require js-routes
 //= require_tree .

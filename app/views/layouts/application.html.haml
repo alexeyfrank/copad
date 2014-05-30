@@ -1,0 +1,8 @@
+!!!
+%html{lang: "en"}
+  = render 'layouts/shared/header'
+  %body
+    .container
+      = render 'layouts/shared/top_menu'
+      = yield
+      = render 'layouts/shared/footer'
