@@ -4,7 +4,7 @@ $(function (){
   editor.setTheme("ace/theme/twilight");
   editor.getSession().setMode("ace/mode/javascript");
 
-  sharejs.open(gon.current_document.id, 'text', "ws://localhost:8085/sockjs", function(error, doc) {
+  sharejs.open("document_" + gon.current_document.id, 'text', "ws://localhost:8085/sockjs", function(error, doc) {
     doc.attach_ace(editor);
   });
 
