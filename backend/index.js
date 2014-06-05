@@ -1,11 +1,14 @@
 var connect = require('connect'),
-    sharejs = require('share').server;
+    sharejs = require('share').server,
+    damper = require('./damper');
 
 var server = connect(
       connect.logger(),
-      connect.static(__dirname + '/public')
+      connect.static(__dirname + '/public'),
+      damper.server
     );
-var options = {db: {type: 'none'}, websocket: true }; // See docs for options. {type: 'redis'} to enable persistance.
+
+var options = {db: {type: 'none'}, websocket: true };
 
 sharejs.attach(server, options);
 

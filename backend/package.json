@@ -4,11 +4,10 @@
   "description": "",
   "homepage": "",
   "author": "alexeyfrank@gmail.com",
-
   "main": "index.js",
-
   "dependencies": {
     "share": "<0.7",
-    "connect": "<2.0.0"
+    "connect": "<2.0.0",
+    "requestify": "~0.1.16"
   }
 }
