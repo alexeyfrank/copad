@@ -14,11 +14,65 @@
 
 @import "bootstrap";
 
+html, body {
+  height: 100%;
+}
+
+#application {
+  height: 100%;
+  margin-top: -30px;
+}
+
+.app-container {
+  height: 602px;
+  width: 100%;
+  position: absolute;
+}
+
+.top-row {
+  top: 0;
+  left: 0;
+  position: relative;
+  width: 100%;
+  height: 70%;
+}
+
+.bottom-row {
+  left: 0;
+  position: relative;
+  width: 100%;
+  height: 30%;
+}
 
 #editor {
   position: absolute;
-  top: 50px;
-  right: 300px;
-  bottom: 0;
   left: 0;
+  width: 60%;
+  height: 100%;
 }
+
+.chat {
+  position: absolute;
+  left: 60%;
+  width: 20%;
+  height: 100%;
+  background-color: blue;
+}
+
+.users {
+  position: absolute;
+  left: 80%;
+  width: 20%;
+  height: 100%;
+  background-color: gray;
+}
+
+.runs {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-color: green;
+}
+

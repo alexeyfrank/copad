@@ -1,17 +1,20 @@
-var connect = require('connect'),
-    sharejs = require('share').server,
-    damper = require('./damper');
+var app = require('./src');
 
-var server = connect(
-      connect.logger(),
-      connect.static(__dirname + '/public'),
-      damper.server
-    );
+var config = {
+  sharejs: {
+    db: {
+      type: 'none'
+    },
+    websocket: true
+  },
 
-var options = {db: {type: 'none'}, websocket: true };
+  chat: {
+  },
 
-sharejs.attach(server, options);
+  damper: {
+    damper_url: 'http://192.168.30.131:3000/',
+    callback_url: "http://192.168.30.44:8085/?action=damper_response"
+  }
+};
 
-server.listen(8085, function() {
-    console.log('Server running at http://127.0.0.1:8085/');
-});
+app.run(config);

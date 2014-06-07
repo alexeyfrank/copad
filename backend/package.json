@@ -8,6 +8,8 @@
   "dependencies": {
     "share": "<0.7",
     "connect": "<2.0.0",
-    "requestify": "~0.1.16"
+    "requestify": "~0.1.16",
+    "moment": "~2.6.0",
+    "socket.io": "~1.0.4"
   }
 }

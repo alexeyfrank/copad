@@ -1,39 +1,58 @@
-$(function (){
-  var editor = initEditor('editor');
+var state = {
+  users: [],
+  chat: {},
+  runs: {},
 
-  initShareJs(editor);
-  initAutosave(editor);
+  addUser: function(user) {
+    if (_.findIndex(this.users, { id: user.id }) == -1) {
+      this.users.push(user);
+    }
+    renderApp(this);
+  },
+
+  removeUser: function(user) {
+    this.users = _.without(this.users, {email: user.email});
+    renderApp(this);
+  }
+}
+
+$(function () {
+  initChat();
+
+  renderApp(state);
 });
 
 
-function initEditor(id) {
-  var editor = ace.edit(id);
-  editor.setTheme("ace/theme/twilight");
-  editor.getSession().setMode("ace/mode/javascript");
-
-  return editor;
+function renderApp(state) {
+  React.renderComponent(window.DocumentEditor(state), document.getElementById('application'));
 }
 
-function initShareJs(editor) {
-  sharejs.open("document_" + gon.current_document.id, 'text', "ws://localhost:8085/sockjs", function(error, doc) {
-    doc.attach_ace(editor);
-    console.log(doc)
+function initChat() {
+  var socket = io.connect('ws://localhost:8086/', { transports: ['websocket']});
+  socket.on('getUserData', function (data) {
+    socket.emit('connectUserToDocument', { document: gon.current_document, user: gon.current_user });
+  });
+
+  socket.on('userConnected', function(state) {
+    renderApp(state.documents[gon.current_document.id]);
+  });
+
+  socket.on('userDisconnected', function(state) {
+    renderApp(state.documents[gon.current_document.id]);
   });
 }
 
-function initAutosave(editor) {
-  setInterval(function() {
-    saveDocument(editor.getValue());
-  }, 5000);
-}
 
-function saveDocument(text) {
-    $.ajax(Routes.api_v1_document_path(gon.current_document.id), {
-      data: {
-        document: { content: text }
-      },
-      method: 'put'
-    }).then(function() {
-      console.log('Document saved!');
-    });
-}
+
+
+
+
+
+
+
+
+
+
+
+
+
