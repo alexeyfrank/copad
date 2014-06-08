@@ -34,11 +34,15 @@ function saveDocument(text) {
 $(function() {
   window.DocumentEditor = React.createClass({
     componentDidMount: function() {
-      var editor = initEditor('editor');
+      this.editor = initEditor('editor');
 
       initShareJs(editor);
       initAutosave(editor);
 
+    },
+
+    getCode: function() {
+      return this.editor.getValue();
     },
 
     render: function() {
@@ -55,7 +59,9 @@ $(function() {
           </div>
 
           <div className="bottom-row">
-            <div className="runs"></div>
+            <div className="runs">
+              <RunsTerminal state={this.props} />
+            </div>
           </div>
         </div>
       );

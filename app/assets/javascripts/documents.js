@@ -1,30 +1,37 @@
 var state = {
   users: [],
   chat: {},
-  runs: {},
-
-  addUser: function(user) {
-    if (_.findIndex(this.users, { id: user.id }) == -1) {
-      this.users.push(user);
-    }
-    renderApp(this);
-  },
-
-  removeUser: function(user) {
-    this.users = _.without(this.users, {email: user.email});
-    renderApp(this);
-  }
+  runs: [],
 }
 
 $(function () {
   initChat();
+  initCodeRunner();
 
-  renderApp(state);
+  // renderApp(state);
 });
 
 
 function renderApp(state) {
-  React.renderComponent(window.DocumentEditor(state), document.getElementById('application'));
+  window.documentEditor = React.renderComponent(window.DocumentEditor(state), document.getElementById('application'));
+}
+
+function initCodeRunner() {
+  $('#run-code-btn').click(function() {
+    var code = window.documentEditor.getCode();
+    var lang = gon.current_document.lang;
+    var id = gon.current_document.id;
+
+    console.log('run code')
+    window.socket.emit('runCode', {
+      code: code,
+      lang: lang,
+      docId: id,
+      user: gon.current_user
+    });
+
+    return false;
+  });
 }
 
 function initChat() {
@@ -33,16 +40,10 @@ function initChat() {
     socket.emit('connectUserToDocument', { document: gon.current_document, user: gon.current_user });
   });
 
-  socket.on('userConnected', function(state) {
-    renderApp(state.documents[gon.current_document.id]);
-  });
-
-  socket.on('userDisconnected', function(state) {
-    renderApp(state.documents[gon.current_document.id]);
-  });
-
   socket.on('stateChanged', function(state) {
-    renderApp(state.documents[gon.current_document.id]);
+    var documentState = state.documents[gon.current_document.id];
+    console.log(documentState)
+    renderApp(documentState);
   });
 }
 

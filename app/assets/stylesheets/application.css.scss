@@ -10,6 +10,7 @@
  *
  *= require_self
  *= require ./jumbotron_narrow
+ *= require_tree ./lib
  */
 
 @import "bootstrap";
@@ -125,6 +126,8 @@ html, body {
   left: 0;
   bottom: 0;
   right: 0;
-  background-color: green;
+  background-color: #FCFCFC;
+  box-size: border-box;
+  border-top: 2px solid #e5e5e5;
 }
 

@@ -2,36 +2,27 @@ var moment = require('moment');
 
 module.exports = {
   documents: {
-    id: {
-      users: {
-        id: {}
-      },
-
-      chat: {
-        
-      },
-
-      runs: {
-        id: {}
-      }
-    }
   },
 
+
+  addRunCodeHandler: function(handler) {
+    this._runCodeHandler = handler;
+  },
 
   connectToDocument: function(doc, user) {
     if (!this.documents[doc.id]) {
       this.documents[doc.id] = {
         users: {},
         chat: {},
-        runs: {}
+        runs: []
       }
     }
 
     this.documents[doc.id].users[user.id] = user;
   },
 
+
   disconnectFromDocument: function(doc, user) {
-    console.log(this.documents[doc.id].users[user.id])
     delete this.documents[doc.id].users[user.id];
   },
 
@@ -43,11 +34,9 @@ module.exports = {
     }
   },
 
-  addRunCode: function(docId, user) {
-    var time = +moment();
-    this.documents[docId].runs[time] = {
-      user: user
-    }
-  }
+  addRunCodeResult: function(docId, result) {
+    this.documents[docId].runs.push(result);
+    this._runCodeHandler();
+  },
 }
 
