@@ -15,9 +15,9 @@ function initShareJs(editor) {
 }
 
 function initAutosave(editor) {
-  // setInterval(function() {
-  //   saveDocument(editor.getValue());
-  // }, 5000);
+  setInterval(function() {
+    saveDocument(editor.getValue());
+  }, 5000);
 }
 
 function saveDocument(text) {
@@ -36,8 +36,8 @@ $(function() {
     componentDidMount: function() {
       this.editor = initEditor('editor');
 
-      initShareJs(editor);
-      initAutosave(editor);
+      initShareJs(this.editor);
+      initAutosave(this.editor);
 
     },
 
@@ -49,7 +49,9 @@ $(function() {
       return (
         <div className="app-container">
           <div className="top-row">
-            <div id="editor" className="editor" />
+            <div id="editor" className="editor">
+              {gon.current_document.content}
+            </div>
             <div className="chat">
               <Chat state={this.props} />
             </div>

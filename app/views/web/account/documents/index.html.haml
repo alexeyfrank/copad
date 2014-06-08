@@ -3,6 +3,7 @@
 .well-mini.well
   = simple_form_for @document, url: [:account, @document], wrapper: :horizontal_form do |f|
     = f.input :title, as: :string
+    = f.input :lang, as: :select, collection: [:ruby, :js, :cpp]
     = f.submit "Создать документ"
 
 %table.table.table-striped
