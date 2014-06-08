@@ -4,12 +4,12 @@ $(function() {
   window.UsersList = React.createClass({
     render: function() {
       return (
-        <div>
+        <div className="inner-container">
           <div className="header">
-            <h3>Документ редактируют:</h3>
+            <h4>Пользователи</h4>
           </div>
           <div className="body">
-            <ul>
+            <ul className="users-list">
               {this.renderUsers()}
             </ul>
           </div>

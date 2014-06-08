@@ -5,9 +5,9 @@ $(function() {
   window.Chat = React.createClass({
     render: function() {
       return (
-        <div>
+        <div className="inner-container">
           <div className="header">
-            <h3>Чат:</h3>
+            <h4>Чат</h4>
           </div>
           <div className="body">
             <div className="messages">
@@ -26,9 +26,11 @@ $(function() {
     renderMessages: function() {
       return _.map(this.props.state.chat, function(val, key) {
         return (
-          <div className="message" key={key}>
-            <div className="message-header">{val.user.email}</div>
-            <div className="message-body">{val.message}</div>
+          <div className="media" key={key}>
+            <div className="media-body">
+              <div className="media-heading">{val.user.email}</div>
+              <div className="">{val.message}</div>
+            </div>
           </div>
         );
       })
