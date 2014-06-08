@@ -35,9 +35,9 @@ module.exports = {
     delete this.documents[doc.id].users[user.id];
   },
 
-  postChatMessage: function(docId, user, message) {
+  postChatMessage: function(doc, user, message) {
     var time = +moment();
-    this.documents[docId].chat[time] = {
+    this.documents[doc.id].chat[time] = {
       user: user,
       message: message
     }

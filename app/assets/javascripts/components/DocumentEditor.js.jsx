@@ -46,7 +46,9 @@ $(function() {
         <div className="app-container">
           <div className="top-row">
             <div id="editor" className="editor" />
-            <div className="chat"></div>
+            <div className="chat">
+              <Chat state={this.props} />
+            </div>
             <div className="users">
               <UsersList users={this.props.users} />
             </div>

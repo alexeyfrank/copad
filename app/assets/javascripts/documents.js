@@ -28,7 +28,7 @@ function renderApp(state) {
 }
 
 function initChat() {
-  var socket = io.connect('ws://localhost:8086/', { transports: ['websocket']});
+  window.socket = io.connect('ws://localhost:8086/', { transports: ['websocket']});
   socket.on('getUserData', function (data) {
     socket.emit('connectUserToDocument', { document: gon.current_document, user: gon.current_user });
   });
@@ -38,6 +38,10 @@ function initChat() {
   });
 
   socket.on('userDisconnected', function(state) {
+    renderApp(state.documents[gon.current_document.id]);
+  });
+
+  socket.on('stateChanged', function(state) {
     renderApp(state.documents[gon.current_document.id]);
   });
 }

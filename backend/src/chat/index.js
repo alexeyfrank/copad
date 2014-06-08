@@ -43,6 +43,11 @@ module.exports = {
       socket.on('disconnect', function() {
         removeUser(socket, id, userData, io, ServerModel);
       });
+
+      socket.on('newMessage', function(msg) {
+        ServerModel.postChatMessage(msg.document, msg.user, msg.message);
+        io.sockets.emit('stateChanged', ServerModel);
+      })
     });
 
     app.listen(8086);

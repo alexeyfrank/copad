@@ -5,10 +5,10 @@ $(function() {
     render: function() {
       return (
         <div>
-          <div class="header">
-            <h2>Документ редактируют:</h2>
+          <div className="header">
+            <h3>Документ редактируют:</h3>
           </div>
-          <div class="body">
+          <div className="body">
             <ul>
               {this.renderUsers()}
             </ul>
