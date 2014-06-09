@@ -5,5 +5,12 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :own_documents, class_name: 'Document', foreign_key: :author_id
-  # has_many :other_documents, class_name: 'Document'
+
+
+  has_many :user_document_grants
+  has_many :documents, through: :user_document_grants
+
+  def to_s
+    email
+  end
 end

@@ -1,9 +1,20 @@
 /** @jsx React.DOM */
 
+
+function getEditorLang() {
+  var langs = {
+    'ruby': 'ruby',
+    'c++': 'c_cpp',
+    'php': 'php'
+  };
+  return langs[gon.current_document.lang || 'ruby'];
+}
+
+
 function initEditor(id) {
   var editor = ace.edit(id);
   editor.setTheme("ace/theme/twilight");
-  editor.getSession().setMode("ace/mode/ruby");
+  editor.getSession().setMode("ace/mode/" + getEditorLang());
 
   return editor;
 }

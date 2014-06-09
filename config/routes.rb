@@ -10,6 +10,7 @@ Copad::Application.routes.draw do
     resource :account, only: [:show] do
        scope :module => :account do
          resources :documents
+         resources :own_documents
        end
     end
   end

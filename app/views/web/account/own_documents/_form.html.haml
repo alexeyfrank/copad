@@ -1,0 +1,25 @@
+%br
+
+= simple_form_for @document, url: [:account, :own, @document] do |f|
+  = f.input :title, as: :string
+  = f.input :lang, input_html: { id: 'lang_select' }
+  = f.association :users, collection: User.where.not(id: current_user.id), input_html: { id: 'users_select' }, include_blank: false, multiple: true, label_method: :email
+
+  = f.submit "Сохранить документ", class: 'btn btn-primary'
+
+
+%br
+%br
+
+:javascript
+  $(function() {
+    $('#lang_select').select2({
+      data: [
+        { id: 'javascript', text: 'javascript' },
+        { id: 'ruby', text: 'ruby' },
+        { id: 'c++', text: 'c++' }
+      ]
+    });
+
+    $('#users_select').select2();
+  });

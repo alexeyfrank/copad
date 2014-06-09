@@ -1,4 +1,6 @@
-%h3 Доступные документы
+%h3 Мои документы
+
+= link_to 'Добавить документ', new_account_own_document_path, class: 'btn btn-primary'
 
 %br
 
@@ -21,6 +23,11 @@
           .btn-group.btn-group-sm
             = link_to edit_document_path(d), class: 'btn btn-primary' do
               %span.glyphicon.glyphicon-edit
+            = link_to edit_account_own_document_path(d), class: 'btn btn-success' do
+              %span.glyphicon.glyphicon-pencil
+            = link_to account_own_document_path(d), method: :delete, class: 'btn btn-danger' do
+              %span.glyphicon.glyphicon-remove
+
 
 %br
 %br
