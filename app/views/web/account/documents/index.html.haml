@@ -1,12 +1,10 @@
 %h3 Мои документы
 
-.well-mini.well
-  = simple_form_for @document, url: [:account, @document], wrapper: :horizontal_form do |f|
-    = f.input :title, as: :string
-    = f.input :lang, as: :select, collection: [:ruby, :js, :cpp]
-    = f.submit "Создать документ"
+= link_to 'Добавить документ', new_account_document_path, class: 'btn btn-primary'
 
-%table.table.table-striped
+%br
+
+%table.table.table-hover
   %thead
     %tr
       %th ID
@@ -19,9 +17,17 @@
       %tr
         %td= d.id
         %td= d.title
-        %td= d.created_at
-        %td= d.updated_at
+        %td= l d.created_at
+        %td= l d.updated_at
         %td
-          = link_to edit_document_path(d), class: 'btn btn-mini' do
-            %span.glyphicon.glyphicon-edit
+          .btn-group.btn-group-sm
+            = link_to edit_document_path(d), class: 'btn btn-primary' do
+              %span.glyphicon.glyphicon-edit
+            = link_to edit_account_document_path(d), class: 'btn btn-success' do
+              %span.glyphicon.glyphicon-pencil
+            = link_to account_document_path(d), method: :delete, class: 'btn btn-danger' do
+              %span.glyphicon.glyphicon-remove
 
+
+%br
+%br

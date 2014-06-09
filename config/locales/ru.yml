@@ -1,0 +1,22 @@
+ru:
+  time:
+    formats:
+      default: "%Y-%m-%d"
+
+  activerecord:
+    models:
+      user:
+        one: Пользователь
+        other: Пользователи
+
+    attributes:
+      user:
+        email: E-mail
+        name: Имя
+        avatar: Аватар
+        password: Пароль
+        password_confirmation: Подтверждение пароля
+      document:
+        title: Название
+        lang: Язык программирования
+

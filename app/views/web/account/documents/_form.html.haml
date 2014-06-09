@@ -1,0 +1,16 @@
+%br
+
+= simple_form_for @document, url: [:account, @document] do |f|
+  = f.input :title, as: :string
+  = f.input :lang, as: :select, collection: [:ruby, :js, :cpp], input_html: { id: 'lang_select' }
+
+  = f.submit "Создать документ", class: 'btn btn-primary'
+
+
+%br
+%br
+
+:javascript
+  $(function() {
+    $('#lang_select').select2()
+  });

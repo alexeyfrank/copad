@@ -17,4 +17,6 @@
 //= require share/ace
 //= require bootstrap
 //= require js-routes
+//= require select2
+//= require select2_locale_ru
 //= require_tree .

@@ -1,6 +1,8 @@
 = simple_form_for @user do |f|
   = f.input :email
+  = f.input :name
+  = f.input :avatar
   = f.input :password
   = f.input :password_confirmation
 
-  = f.submit
+  = f.submit "Регистрация", class: 'btn btn-primary'

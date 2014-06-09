@@ -35,14 +35,13 @@ function initCodeRunner() {
 }
 
 function initChat() {
-  window.socket = io.connect('ws://localhost:8086/', { transports: ['websocket']});
+  window.socket = io.connect('ws://'+ window.location.hostname + ':8086/', { transports: ['websocket']});
   socket.on('getUserData', function (data) {
     socket.emit('connectUserToDocument', { document: gon.current_document, user: gon.current_user });
   });
 
   socket.on('stateChanged', function(state) {
     var documentState = state.documents[gon.current_document.id];
-    console.log(documentState)
     renderApp(documentState);
   });
 }

@@ -32,6 +32,7 @@ gem 'bootstrap-sass'
 gem 'js-routes'
 gem 'quiet_assets'
 gem "active_model_serializers"
+gem "select2-rails"
 
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 gem 'therubyracer', platforms: :ruby

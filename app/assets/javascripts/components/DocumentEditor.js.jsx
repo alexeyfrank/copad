@@ -3,13 +3,13 @@
 function initEditor(id) {
   var editor = ace.edit(id);
   editor.setTheme("ace/theme/twilight");
-  editor.getSession().setMode("ace/mode/javascript");
+  editor.getSession().setMode("ace/mode/ruby");
 
   return editor;
 }
 
 function initShareJs(editor) {
-  sharejs.open("document_" + gon.current_document.id, 'text', "ws://localhost:8085/sockjs", function(error, doc) {
+  sharejs.open("document_" + gon.current_document.id, 'text', "ws://" + window.location.hostname + ":8085/sockjs", function(error, doc) {
     doc.attach_ace(editor);
   });
 }

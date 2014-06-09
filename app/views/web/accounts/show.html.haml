@@ -1,3 +1,19 @@
-%h1 Привет, #{current_user.email}!
+%h2 Вы вошли в систему под именем: #{current_user.email}
 
-%p Здесь будет какая нибудь сводная информация
+%h4 Документы
+
+%table.table.table-striped
+  %thead
+    %tr
+      %th ID
+      %th Название
+      %th Дата создания
+      %th Дата обновления
+  %tbody
+    - @documents.each do |d|
+      %tr
+        %td= d.id
+        %td= d.title
+        %td= l d.created_at
+        %td= l d.updated_at
+

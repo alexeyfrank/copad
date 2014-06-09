@@ -6,7 +6,7 @@ $(function() {
     componentDidMount: function() {
       var terminal = $('#terminal').terminal(function(command, term) {}, {
         name: 'js_demo',
-        height: 200,
+        height: 180,
         prompt: '~%> '
       });
 
