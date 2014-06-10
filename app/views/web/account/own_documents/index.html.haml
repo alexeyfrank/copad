@@ -11,7 +11,7 @@
       %th Название
       %th Дата создания
       %th Дата обновления
-      %th
+      %th{ style: 'width: 120px'}
   %tbody
     - @documents.each do |d|
       %tr
@@ -19,7 +19,7 @@
         %td= d.title
         %td= l d.created_at
         %td= l d.updated_at
-        %td
+        %td{ style: 'width: 120px'}
           .btn-group.btn-group-sm
             = link_to edit_document_path(d), class: 'btn btn-primary' do
               %span.glyphicon.glyphicon-edit

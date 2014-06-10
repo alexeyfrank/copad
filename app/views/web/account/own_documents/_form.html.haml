@@ -1,8 +1,15 @@
 %br
 
+- require 'net/http'
+- require 'json'
+- require 'uri'
+
+- langs = JSON.parse(Net::HTTP.get_response(URI('http://192.168.30.131:3000/get_langs')).body)
+- langs = langs.map{ |hash| hash["name"] }
+
 = simple_form_for @document, url: [:account, :own, @document] do |f|
   = f.input :title, as: :string
-  = f.input :lang, input_html: { id: 'lang_select' }
+  = f.input :lang, input_html: { id: 'lang_select' }, collection: langs
   = f.association :users, collection: User.where.not(id: current_user.id), input_html: { id: 'users_select' }, include_blank: false, multiple: true, label_method: :email
 
   = f.submit "Сохранить документ", class: 'btn btn-primary'
@@ -11,15 +18,9 @@
 %br
 %br
 
+
 :javascript
   $(function() {
-    $('#lang_select').select2({
-      data: [
-        { id: 'javascript', text: 'javascript' },
-        { id: 'ruby', text: 'ruby' },
-        { id: 'c++', text: 'c++' }
-      ]
-    });
-
+    $('#lang_select').select2();
     $('#users_select').select2();
   });

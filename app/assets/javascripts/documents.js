@@ -1,3 +1,8 @@
+window.config = {
+  damper_langs_url: 'http://192.168.30.131:3000/get_langs'
+}
+
+
 var state = {
   users: [],
   chat: {},
